@@ -1,0 +1,301 @@
+---
+title: "RWorksheet_BIBIT#1"
+output: pdf_document
+date: "2024-09-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Set up a vector named age, consisting of 34, 28, 22, 36, 27, 18, 52, 39, 42, 29,
+35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41,
+51, 35, 24, 33, 41.
+a. How many data points? 
+
+    There are 34 Data Points
+
+b. Write the R code and its output.
+```{r}
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29,
+         35, 31, 27, 22, 37, 34, 19, 20, 57, 49,
+         50, 37, 46, 25, 17, 37, 42, 53, 41, 51,
+         35, 24, 33, 41)
+length(age)
+```
+2. Find the reciprocal of the values for age.
+    Write the R code and its output.
+```{r}
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29,
+         35, 31, 27, 22, 37, 34, 19, 20, 57, 49,
+         50, 37, 46, 25, 17, 37, 42, 53, 41, 51,
+         35, 24, 33, 41)
+reciprocal_age <- 1 / age
+reciprocal_age
+```
+3. Assign also new_age <- c(age, 0, age).
+```{r}
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29,
+         35, 31, 27, 22, 37, 34, 19, 20, 57, 49,
+         50, 37, 46, 25, 17, 37, 42, 53, 41, 51,
+         35, 24, 33, 41)
+new_age <- c(age, 0, age)
+
+```
+What happen to the new_age?
+
+    The c() function is utilized to combine the vectors,
+    resulting in the new_age vector, which comprises 69 elements:
+    the initial 34 elements from the age vector, 
+    followed by a single 0, and finally, 
+    the duplicate 34 elements from the age vector.
+    
+\pagebreak
+
+4. Sort the values for age.
+
+    Write the R code and its output.
+```{r}
+sort(age)
+```
+
+
+5. Find the minimum and maximum value for age.
+```{r}
+min_age <- min(age)
+max_age <- max(age)
+print(paste("Minimum age:", min_age))
+print(paste("Maximum age:", max_age))
+```
+
+6. Set up a vector named data, consisting of 2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5,
+2.3, 2.5, 2.3, 2.4, and 2.7.
+
+
+a. How many data points?
+
+    12
+      
+b. Write the R code and its output.
+```{r}
+data <- c(2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5, 2.3, 2.5, 2.3, 2.4, 2.7)
+length(data)
+```
+
+
+7. Generates a new vector for data where you double every value of the data. 
+```{r}
+data_doubled <- data * 2
+print(data_doubled)
+```
+
+
+What happen to the data?
+
+
+    We created a new vector data_doubled by 
+    doubling every value in the original data vector, 
+    resulting in a new vector with the same number of elements
+    but with each element twice
+    the value of the corresponding element in the original vector.
+   
+   \pagebreak
+   
+8.1 Integers from 1 to 100
+
+```{r}
+data_1_to_100 <- 1:100
+data_1_to_100
+print(data_1_to_100)
+```
+
+
+
+8.2 Numbers from 20 to 60
+```{r}
+data_20_to_60 <- 20:60
+data_20_to_60
+print(data_20_to_60)
+```
+
+
+8.3 Mean of numbers from 20 to 60
+```{r}
+mean_20_to_60 <- mean(20:60)
+mean_20_to_60
+print(mean_20_to_60)
+```
+
+
+8.4 Sum of numbers from 51 to 91
+```{r}
+sum_51_to_91 <- sum(51:91)
+sum_51_to_91
+print(sum_51_to_91)
+```
+
+\pagebreak
+
+*8.5 Integers from 1 to 1,000
+```{r}
+data_1_to_1000 <- 1:1000
+data_1_to_1000
+```
+
+    a. How many data points from 8.1 to 8.4?_______
+
+
+    So, the total number of data points from 8.1 to 8.4 is: 100 + 41 + 1 + 1 = 143
+
+    Therefore, the answer is: 143
+
+    b. Write the R code and its output from 8.1 to 8.4.
+    8.1 
+
+```{r}
+data_1_to_100 <- 1:100
+data_1_to_100
+
+```
+
+\pagebreak
+
+    8.2
+```{r}
+data_20_to_60 <- 20:60
+data_20_to_60
+
+```
+
+    8.3
+```{r}
+mean_20_to_60 <- mean(20:60)
+mean_20_to_60
+
+```
+
+    8.4
+```{r}
+sum_51_to_91 <- sum(51:91)
+sum_51_to_91
+
+```    
+    
+    c. For 8.5 find only maximum data points until 10.
+```{r}
+data_1_to_1000 <- 1:1000
+data_1_to_10 <- data_1_to_1000[1:10]
+print(data_1_to_10)
+```
+    
+    9. *Print a vector with the integers between 1 and 100 that are not divisible by 3, 5 and 7 using filter option.
+    
+```{r}
+vector <- Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(1, 100, 1))
+print(vector)
+```
+  
+    10. Generate a sequence backwards of the integers from 1 to 100.
+    Write the R code and its output.
+```{r}
+vector <- seq(100, 1, -1)
+print(vector)
+```
+    
+    11. List all the natural numbers below 25 that are multiples of 3 or 5.
+
+```{r}
+multiples <- seq(1, 24, 1)[(seq(1, 24, 1) %% 3 == 0) | (seq(1, 24, 1) %% 5 == 0)]
+print(multiples)
+```
+
+    Find the sum of these multiples.
+```{r}
+sum_multiples <- sum(multiples)
+print(sum_multiples)
+```
+    a. How many data points from 10 to 11?
+    There are 112 data points
+    
+    b. Write the R code and its output from 10 and 11.
+10
+```{r}
+vector <- seq(100, 1, -1)
+print(vector)
+```
+11
+```{r}
+multiples <- seq(1, 24, 1)[(seq(1, 24, 1) %% 3 == 0) | (seq(1, 24, 1) %% 5 == 0)]
+print(multiples)
+```
+      
+      12. Statements can be grouped together using braces ‘{’ and ‘}’.
+      A group of statements is sometimes called a block. 
+      Single statements are evaluated when a new line is 
+      typed at the end of the syntactically complete statement. 
+      Blocks are not evaluated until a new line is 
+      entered after the closing brace.
+
+      Enter this statement:
+      x <- {0 + x + 5 + }
+
+    Describe the output.
+    
+    When you enter x <- {0 + x + 5 + }, 
+    you'll get an error because the statement is incomplete
+    and R expects more input. 
+    The trailing + symbol indicates R is waiting for another operand,
+    and the { brace isn't properly closed, causing the error.
+    
+  \pagebreak
+    
+    13. *Set up a vector named score, 
+    consisting of 72, 86, 92, 63, 88, 89, 91, 92, 75, 75 and 77.
+    To access individual elements of an atomic vector,
+    one generally uses the x[i] construction.
+    Find x[2] and x[3]. 
+    
+    Write the R code and its output.
+```{r}
+score <- c(72, 86, 92, 63, 88, 89, 91, 92, 75, 75, 77)
+score[2]
+score[3]
+```
+    
+    
+    14. *Create a vector a = c(1,2,NA,4,NA,6,7).
+```{r}
+a <- c(1, 2, NA, 4, NA, 6, 7)
+```
+    
+a. Change the NA to 999 using the codes print(a,na.print="-999").
+```{r}
+a <- c(1, 2, NA, 4, NA, 6, 7)
+print(a, na.print="-999")
+```
+
+b. Write the R code and its output. Describe the output.
+```{r}
+a <- c(1, 2, NA, 4, NA, 6, 7)
+print(a, na.print="-999")
+```
+
+    The output shows the vector a with the NA values replaced with -999 when printed.
+    The actual values in the vector a remain unchanged,
+    only the way they are printed is affected by the na.print argument.
+ 
+    15. A special type of function calls can appear on the left hand side of the assignment
+    operator as in > class(x) <- "foo".   
+    
+```{r}
+  name = readline(prompt="John Benedict Bibit")
+age = readline(prompt="19")
+print(paste("My name is",name, "and I am",age ,"years old."))
+print(R.version.string)
+```
+
+
+
+
+
+
