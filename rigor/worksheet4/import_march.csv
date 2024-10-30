@@ -1,8 +1,9 @@
-students,strat1,strat2,strat3
-male,8,10,8
+Students,Strategy 1,Strategy 2,Strategy 3
+Male,8,10,8
 ,4,8,6
 ,0,6,4
 ,,,
-female,14,4,15
+,,,
+Female,14,4,5
 ,10,2,12
 ,6,0,9
