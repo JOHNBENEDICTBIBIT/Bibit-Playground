@@ -1,0 +1,160 @@
+---
+title: "RWorksheet_BIBIT#4b"
+author: "John Benedict Bibit"
+date: "2024-10-28"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Using the for loop, create an R script that will display a 5x5 matrix as shown in
+Figure 1. It must contain vectorA = [1,2,3,4,5] and a 5 x 5 zero matrix.
+
+```{r}
+
+vectorA <- c(1, 2, 3, 4, 5)
+
+
+matrix_result <- matrix(0, nrow = 5, ncol = 5)
+
+
+for (i in 1:length(vectorA)) {
+  matrix_result[1, i] <- vectorA[i]
+}
+
+
+print(matrix_result)
+```
+
+
+
+2. Print the string "*" using for() function. The output should be the same as shown
+in Figure
+```{r}
+
+n <- 5
+
+
+for (i in 1:n) {
+
+  cat(rep("*", i), "\n")
+}
+```
+
+\pagebreak 
+3.Get an input from the user to print the Fibonacci sequence starting from the 1st input
+up to 500. Use repeat and break statements. Write the R Scripts and its output.
+
+```{r}
+start_num <- 5  # Assigned starting number for the Fibonacci sequence
+a <- 0
+b <- 1
+
+cat("Fibonacci sequence starting from", start_num, "up to 500:\n")
+
+repeat {
+  fib <- a + b
+  a <- b
+  b <- fib
+  
+  if (fib >= start_num) {
+    cat(fib, "\n")
+  }
+  
+  if (fib > 500) {
+    break
+  }
+}
+  
+```
+
+
+
+4. Import the dataset as shown in Figure 1 you have created previously.
+
+a. What is the R script for importing an excel or a csv file? Display the first 6 rows of
+the dataset? Show your codes and its result
+
+```{r}
+
+shoes_data_csv <- read.csv("/cloud/project/rigor/worksheet4/shoes_data.csv")
+
+
+head(shoes_data_csv)
+```
+
+
+
+b. Create a subset for gender(female and male). How many observations are there in
+Male? How about in Female? Write the R scripts and its output.
+
+```{r}
+
+
+shoes_data_csv
+
+male_data <- subset(shoes_data_csv, Gender == "M")
+female_data <- subset(shoes_data_csv, Gender == "F")
+
+num_male <- nrow(male_data)
+num_female <- nrow(female_data)
+
+cat("Number of observations in Male:", num_male, "\n")
+cat("Number of observations in Female:", num_female, "\n")
+```
+
+
+c. Create a graph for the number of males and females for Household Data. Use plot(),
+chart type = barplot. Make sure to place title, legends, and colors. Write the R scripts and
+its result.
+
+```{r}
+library(readr)
+
+household_data <- read.csv("/cloud/project/rigor/worksheet4/CopyOfHouseholdData.csv")
+
+gender_count <- table((household_data$Sex))
+
+if (length(gender_count) > 0) {
+    bar_colors <- c("blue", "pink")
+    
+    barplot(gender_count,
+            main = "Number of Males and Females in Household Data",
+            xlab = "Gender",
+            ylab = "Number of Observations",
+            col = bar_colors,
+            beside = TRUE,
+            names.arg = names(gender_count))
+    
+    legend("topright", legend = names(gender_count), fill = bar_colors)
+} else {
+    print("No valid gender data to plot.")
+}
+```
+
+
+\pagebreak
+
+5. The monthly income of Dela Cruz family was spent on the following:
+Food Electricity Savings Miscellaneous
+60 10 5 25
+
+
+a. Create a piechart that will include labels in percentage.Add some colors and title of
+the chart. Write the R scripts and show its output.
+```{r}
+categories <- c("Food", "Electricity", "Savings", "Miscellaneous")
+values <- c(60, 10, 5, 25)
+
+percentages <- values / sum(values) * 100
+
+pie(percentages, 
+    labels = paste(categories, round(percentages, 1), "%"), 
+    col = c("lightblue", "lightgreen", "lightpink", "lightyellow"),
+    main = "Dela Cruz Family Monthly Income Distribution")
+
+legend("topright", legend = categories, fill = c("lightblue", "lightgreen", "lightpink", "lightyellow"))
+```
+
